@@ -1,5 +1,5 @@
 "use client"
-import React , {useState} from 'react'
+import React, { useState } from 'react'
 import ErrorLocation from '../../../components/ErrorLocation';
 import getLocation from '../../../utils/getLocation';
 import Link from 'next/link';
@@ -18,9 +18,12 @@ function SearchLocation() {
                     <h4 className='text-2xl md:text-3xl'>Search some city to get the weather: </h4>
                 </div>
                 :
-                <ErrorLocation errorMsg={errorMsg} />
+                <div>
+                    <ErrorLocation errorMsg={errorMsg} />
+                    <h4 className='text-2xl md:text-3xl'>Search some other city to get the weather: </h4>
+                </div>
             }
-            <input id='weatherID' type='text' className='border border-red-950 rounded-md p-2 ' placeholder='City Name' onChange={e => setCity(e.target.value)}/>
+            <input id='weatherID' type='text' className='border border-red-950 rounded-md p-2 ' placeholder='City Name' onChange={e => setCity(e.target.value)} />
             <Link href={`/search-location/${city}`} className='border border-red-950 rounded-2xl px-5 py-1 font-semibold'>Go</Link>
         </div>
     </div>
