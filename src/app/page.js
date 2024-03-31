@@ -6,38 +6,21 @@ import getLocation from '../../utils/getLocation';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
-
-function Home() {
-
+const Home = () => {
   const { latLong, handleTrackLocation, errorMsg, isLocationAllowed } = getLocation();
+  console.log(latLong, errorMsg, isLocationAllowed);
 
-  console.log(latLong);
   const handleLocationClick = () => {
     handleTrackLocation();
   }
+
   useEffect(() => {
     if (isLocationAllowed === true) {
-      redirect(`/my-weather/${latLong}`);
-    } else if (isLocationAllowed === false) {
-      redirect('/search-location');
+      redirect(`/my-weather/${latLong}`); 
     }
-  }, [isLocationAllowed]);
-
-
-
-  // if(latLong===''){
-  //   return (
-  // <div>
-  //   <h1>sorry pal couldnt get your location</h1>
-  //   <h4>Enter some location to get weather: </h4>
-  //   <input id='weatherID' type='text' className='border border-red-950'/>
-  //   <label for='weatherID' />
-  // </div>
-  //   )
-  // }
-
-
-
+    
+  },
+    [isLocationAllowed, latLong]);
 
   return (
     <>

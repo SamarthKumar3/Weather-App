@@ -52,16 +52,14 @@ const getLocation = () => {
                 setIsLocationAllowed(true);
             } 
         });
-
     }, []);
 
     const success = (position) => {
+        setIsLocationAllowed(true);
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
-
         setLatLong(`${latitude},${longitude}`);
         setErrorMsg('');
-        setIsLocationAllowed(true);
     }
 
     const error = () => {
