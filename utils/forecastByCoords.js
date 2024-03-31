@@ -28,7 +28,7 @@ function ForecastByCoords(props) {
     useEffect(() => {
         const getCityWeather = async () => {
             try {
-                const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.NEXT_OPEN_WEATHER_API_KEY}&units=metric#`);
+                const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.NEXT_PUBLIC_API_KEY}&units=metric#`);
                 const weatherData = await response.data;
                 setFormData({
                     weather: weatherData.weather[0].main,

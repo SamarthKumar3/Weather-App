@@ -23,7 +23,7 @@ function ForecastByCity(props) {
     useEffect(() => {
         const getCityWeather = async () => {
             try {
-                const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${process.env.NEXT_OPEN_WEATHER_API_KEY}&units=metric#`);
+                const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${process.env.NEXT_PUBLIC_API_KEY}&units=metric#`);
                 const weatherData = await response.data;
                 if (weatherData.cod === '404') {
                     throw new Error(weatherData.message);
